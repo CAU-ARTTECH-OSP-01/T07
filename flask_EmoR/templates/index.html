@@ -1,0 +1,42 @@
+{% extends "bootstrap/base.html" %}
+{% block title %} {{ TITLE }} {% endblock %}
+{% block styles %} {{ super() }}
+
+<!-- Custom styles -->
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+{% endblock %}
+
+{% block content %}
+<h1 class="entry-title" style="text-align: center;">{{ TITLE }}</h1>
+<h1 class="entry-title" style="text-align: center;"><img style="font-size: 14px; font-family: -webkit-standard;" src="/static/detect.png" alt="" width="56" height="56" />&nbsp;&nbsp;<img src="/static/object.png" alt="" width="56" height="56" /></h1>
+<p style="text-align: center;"><img src="/static/github.png" alt="" width="26" height="26" />&nbsp;<a href="https://github.com/paolodavid">https://github.com/paolodavid</a></p>
+<p><a href="localhost:9091/ai">메인으로 돌아가기</a></p>
+
+<div id="container" align=center>
+  <img id="videoElement" src="{{ url_for('video_feed') }}" />
+
+  <div>
+    <br>
+  </div>
+
+
+  <div>
+    <br>
+  </div>
+
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- Imports -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<!-- Scripts -->
+<script
+  type="text/javascript"
+  src="{{ url_for('static', filename='script.js') }}"
+></script>
+
+{{ super() }}
+{% endblock %}
