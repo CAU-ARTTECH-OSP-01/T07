@@ -1,9 +1,19 @@
 from flask import Flask, render_template, Response
 from flask_bootstrap import Bootstrap
 from camera import VideoCamera
+import pymysql
 
 app = Flask(__name__)
 Bootstrap(app)
+
+db = pymysql.connect(
+                    host='localhost',
+                    port = 3306,
+                    user='root',
+                    passwd='tiger',
+                    db = 'mypage',
+                    charset='utf8')
+
 
 @app.route('/facialExpression')
 def index():
@@ -39,6 +49,24 @@ def companies():
 @app.route('/samsung', methods=['GET'])
 def samsung():
     return render_template('/companies/samsung.html')
+
+@app.route('/ai/mypage', methods=['GET'])
+def mypage():
+    return render_template('/main/mypage.html')
+
+@app.route('/interview', methods=['GET','POST'])
+def interview():
+    cursor = db.cursor()
+    sql = "select * from interview"
+    cursor.execute(sql)
+    db.commit()
+
+    data_list = cursor.fetchall()
+    print(data_list[0])
+    db.close()
+
+    return render_template('/main/interview.html',data_list=data_list)
+
 
 
 if __name__ == '__main__':

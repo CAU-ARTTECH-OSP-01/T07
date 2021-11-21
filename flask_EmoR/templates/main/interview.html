@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AI Interview</title>
+		<!-- <meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='/assets/css/main.css') }}" />
+		<noscript><link rel="stylesheet" href="{{ url_for('static', filename='/assets/css/noscript.css') }}" /></noscript> -->
+</head>
+	<body class="is-preload">
+			<h1>My Page-Interview List </h1>
+				<h2>My interview</h2>
+                <table>
+                                        <thead>
+                                            <tr>
+                                                <th>NO.</th>
+                                                <th>I D</td>
+                                                <th>DATE</th>
+                                                <th>context</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            {% for i in data_list %}
+                                            <tr>
+                                                <td><option>{{i}}</option></td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                
+                                <br>
+							</article>
+				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+						<p><a href="ai/login">LOGIN</a></p>
+					</footer>
+
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+					<!-- Scripts -->
+<!-- 		
+		<script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='assets/js/browser.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
+		<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script> -->
+
+
+	</body>
+</html>
