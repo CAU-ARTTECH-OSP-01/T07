@@ -17,7 +17,9 @@
 				<header id="header">
 					<div class="content">
 						<div class="inner">
-							<h1>Introduce your self</h1>
+                            {% for question in data_questions%}
+							<h1>{{question['questions']}}</h1>
+                            {% endfor %}
 						</div>
 					</div>				
 				</header>

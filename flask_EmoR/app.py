@@ -6,14 +6,15 @@ import pymysql
 app = Flask(__name__)
 Bootstrap(app)
 
-db = pymysql.connect(
+def connectsql():
+    db = pymysql.connect(
                     host='localhost',
                     port = 3306,
                     user='root',
                     passwd='tiger',
                     db = 'mypage',
                     charset='utf8')
-
+    return db
 
 @app.route('/facialExpression')
 def index():
@@ -54,16 +55,36 @@ def samsung():
 def mypage():
     return render_template('/main/mypage.html')
 
+@app.route('/popup')
+def popup():
+    return render_template('/companies/popup.html')
+
+@app.route('/questions')
+def questions():
+    conn = connectsql()
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
+    sql = "select questions from questions order by rand() limit 1"
+    cursor.execute(sql)
+    
+
+    data_questions = cursor.fetchall()
+    cursor.close()
+    conn.close()
+
+    return render_template('/companies/questions.html',data_questions=data_questions)
+
+
 @app.route('/interview', methods=['GET','POST'])
 def interview():
-    cursor = db.cursor()
-    sql = "select * from interview"
+    conn = connectsql()
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
+    sql = "select NO, DATE, context from interview"
     cursor.execute(sql)
-    db.commit()
+    
 
     data_list = cursor.fetchall()
-    print(data_list[0])
-    db.close()
+    cursor.close()
+    conn.close()
 
     return render_template('/main/interview.html',data_list=data_list)
 

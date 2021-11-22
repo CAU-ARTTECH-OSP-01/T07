@@ -9,3 +9,5 @@ INSERT INTO interview (DATE, context) VALUES ("20211120","HI");
 select * from interview;
 
 참고 : https://cha4ser.tistory.com/entry/Web-%EA%B2%8C%EC%8B%9C%ED%8C%90-%EB%A7%8C%EB%93%A4%EA%B8%B002Python-Flask-Mysql-%EC%97%B0%EB%8F%99
+https://github.com/ParkHyeonChae/Post-Board-Of-All/blob/master/app.py
+대기업 인성면접 질문 : https://justrich.tistory.com/40
