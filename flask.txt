@@ -1,0 +1,27 @@
+CREATE TABLE interview(
+	NO int not null auto_increment primary key,
+    DATE timestamp not null,
+    context varchar(100)
+);
+
+INSERT INTO interview (DATE, context) VALUES ("20211120","HI");
+select * from interview;
+
+--기업 인터뷰 질문들 항목
+CREATE TABLE questions(
+	NO int not null auto_increment primary key,
+    companies varchar(100),
+    questions varchar(500)
+);
+
+INSERT INTO questions (companies, questions) VALUES ("samsung","What kind of person will you be within next 10 years?");
+INSERT INTO questions (companies, questions) VALUES ("samsung","What will you do if you have a different opinion with your suprior?");
+INSERT INTO questions (companies, questions) VALUES ("samsung","Tell me your biggest merit");
+
+
+select * from questions;
+
+
+참고 : https://cha4ser.tistory.com/entry/Web-%EA%B2%8C%EC%8B%9C%ED%8C%90-%EB%A7%8C%EB%93%A4%EA%B8%B002Python-Flask-Mysql-%EC%97%B0%EB%8F%99
+https://github.com/ParkHyeonChae/Post-Board-Of-All/blob/master/app.py
+대기업 인성면접 질문 : https://justrich.tistory.com/40
