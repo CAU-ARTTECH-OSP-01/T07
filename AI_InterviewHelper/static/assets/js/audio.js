@@ -12,8 +12,6 @@ window.onload = function () {
         //https://bugzilla.mozilla.org/show_bug.cgi?id=965483
         //https://support.mozilla.org/en-US/questions/984179
         window.persistAudioStream = stream;
-        h.innerHTML = "Thanks";
-        h.setAttribute('style', 'opacity: 0;');
         var audioContent = new AudioContext();
         var audioStream = audioContent.createMediaStreamSource( stream );
         var analyser = audioContent.createAnalyser();
@@ -21,7 +19,7 @@ window.onload = function () {
         analyser.fftSize = 1024;
 
         var frequencyArray = new Uint8Array(analyser.frequencyBinCount);
-        visualizer.setAttribute('viewBox', '0 0 255 255');
+        visualizer.setAttribute('viewBox', '0 0 225 215');
       
 		//Through the frequencyArray has a length longer than 255, there seems to be no
         //significant data after this point. Not worth visualizing.

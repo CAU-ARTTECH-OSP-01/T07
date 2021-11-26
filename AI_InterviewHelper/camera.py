@@ -13,6 +13,7 @@ class VideoCamera(object):
         self.video = cv2.VideoCapture(0)
 
     def __del__(self):
+        self.video = cv2.flip(frame,0)
         self.video.release()
 
     # returns camera frames along with bounding boxes and predictions
@@ -26,6 +27,7 @@ class VideoCamera(object):
 
             roi = cv2.resize(fc, (48, 48))
             pred = model.predict_emotion(roi[np.newaxis, :, :, np.newaxis])
+            
 
             cv2.putText(fr, pred, (x, y), font, 1, (255, 255, 0), 2)
             cv2.rectangle(fr,(x,y),(x+w,y+h),(255,0,0),2)

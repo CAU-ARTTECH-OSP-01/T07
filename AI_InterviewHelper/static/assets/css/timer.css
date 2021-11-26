@@ -1,7 +1,7 @@
 @charset "EUC-KR";
 
 
- button[data-setter] {
+button[data-setter] {
   font-size: 18px;
   width: 20px;
   height: 25px;
@@ -11,9 +11,9 @@
 button[data-setter]:hover { opacity: 0.5; }
 
 .setters {
-  position: absolute;
-  right: 50px;
-  top: 30px;
+  position: absolute; 
+  right: 39px;
+  top: 36px;
 }
 
 .minutes-set {
@@ -32,9 +32,6 @@ button[data-setter]:hover { opacity: 0.5; }
 
 .display-remain-time {
   margin-top:25px;
-  
-  
-
   margin-right:20px;
   font-family: 'Roboto';
   font-weight: 100;
@@ -42,7 +39,9 @@ button[data-setter]:hover { opacity: 0.5; }
   color: #F7958E;
 }
 #container {
+  
   margin: 0px auto;
+  margin-bottom: 10px;
   margin-top: 0px;
   width: 300px;
   height: 200px;
@@ -70,9 +69,9 @@ button[data-setter]:hover { opacity: 0.5; }
 }
 
 .play::before {
-  display: block;
+  display: block; 
   content: "";
-  position: absolute;
+  position: absolute; 
   top: 8px;
   left: 16px;
   border-top: 15px solid transparent;
@@ -95,30 +94,3 @@ button[data-setter]:hover { opacity: 0.5; }
 }
 
 #pause:hover { opacity: 0.8; }
-
-/* 
-.circle {
-	position:relative;
-	bottom:305px;	
-	left:142px;
-}
-.e-c-base {
-  fill: none;
-  stroke: #B6B6B6;
-  stroke-width: 4px
-}
-
-.e-c-progress {
-  fill: none;
-  stroke: #F7958E;
-  stroke-width: 4px;
-  transition: stroke-dashoffset 0.7s;
-}
-
-.e-c-pointer {
-  fill: #FFF;
-  stroke: #F7958E;
-  stroke-width: 2px;
-}
-
-#e-pointer { transition: transform 0.7s; } */
