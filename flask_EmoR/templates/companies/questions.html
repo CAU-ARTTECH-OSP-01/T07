@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="{{ url_for('static', filename='/assets/css/main.css') }}" />
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+	<link rel="stylesheet" href="{{ url_for('static', filename='/assets/css/timer.css') }}" />	
+	<noscript><link rel="stylesheet" href="{{ url_for('static', filename='/assets/css/noscript.css') }}" /></noscript>
+
+	</head>
+	<body class="is-preload">
+	<!-- Wrapper -->
+			<div id="wrapper">
+				<!-- Header -->
+				<header id="header">
+					<div class="content">
+						<div class="inner">
+                            {% for question in data_questions%}
+							<h1>{{question['questions']}}</h1>
+                            {% endfor %}
+						</div>
+					</div>				
+				</header>
+				<div id="container" align=right>
+					<img id="videoElement" src="{{ url_for('video_feed') }}" />
+				</div>
+			
+				<!-- ���� ���� -->
+					<div class="setters">
+					  <div class="minutes-set">
+					    <button data-setter="minutes-plus">+</button>
+
+					    <button data-setter="minutes-minus">-</button>
+					  </div>
+					  <div class="seconds-set">
+					    <button data-setter="seconds-plus">+</button>
+					    <button data-setter="seconds-minus">-</button>
+					  </div>
+					</div>
+					
+					<div class="circle">
+					  <svg width="0" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+					     <g transform="translate(110,110)">
+					        <circle r="400" class="e-c-base"/>
+					        <g transform="rotate(-90)">
+					           <circle r="100" class="e-c-progress"/>
+					           <g id="e-pointer">
+					              <circle cx="100" cy="0" r="8" class="e-c-pointer"/>
+					           </g>
+					        </g>
+					     </g>
+					  </svg>
+					</div>
+					<div class="controlls">
+					  <div class="display-remain-time">00:60</div>
+					  <button class="play" id="pause"></button>
+					</div>
+					
+
+					<input type="button" value="Next question" onclick="popup();">
+					<script>
+						function popup(){
+							window.open(
+								"popup",
+								"a",
+								"width=400, height=300, left=100, top=50"
+								)
+							}
+
+					</script>
+				</div>
+				
+				
+				
+							
+				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+						<p><a href="ai/login">LOGIN</a></p>
+					</footer>
+
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+			<script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='assets/js/browser.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
+			<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+			<script src="{{ url_for('static', filename='assets/js/timer.js') }}"></script>
+			
+			<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+				  
+			<!-- Scripts -->
+			<script
+			  type="text/javascript"
+			  src="{{ url_for('static', filename='script.js') }}"
+			></script>
+	</body>
+</html>

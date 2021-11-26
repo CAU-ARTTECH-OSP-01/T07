@@ -40,10 +40,12 @@ def video_feed():
 @app.route('/aud')
 def aud():
     return render_template("/companies/popup.html")
+
+def audio():
     with sd.Stream(callback=print_sound):
         duration = 10
         sd.sleep(duration * 1000)
-
+    
 
 @app.route('/')
 def main():
@@ -64,7 +66,7 @@ def companies():
 def samsung():
     return render_template('/companies/samsung.html')
 
-@app.route('/ai/mypage', methods=['GET'])
+@app.route('/mypage', methods=['GET'])
 def mypage():
     return render_template('/main/mypage.html')
 
