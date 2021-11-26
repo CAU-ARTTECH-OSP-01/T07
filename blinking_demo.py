@@ -10,7 +10,7 @@ from gaze_tracking import GazeTracking
 
 gaze = GazeTracking()
 webcam = cv2.VideoCapture(0)
-time_blink = 0
+blinkingState = []
 count = 0
 start = time.time()
 # 출처: https://blockdmask.tistory.com/549 [개발자 지망생]
@@ -27,16 +27,20 @@ while True:
 
     frame = gaze.annotated_frame()
     text = ""
-    #오류: 눈 감고 있으면 횟수가 계속 오름... 어떻게 해결??
+    
     if gaze.is_blinking():            
-        text = "Blinking"
-        time_blink += 1
+        text = "Blnking"
+        blinkingState.append(1)
+    else:
+        blinkingState.append(0)
         
-        # 눈 깜박이는 횟수 정확성 올리기 위해 종속 if문 사용함
-        # 1 < time_blink < 10: 눈을 길게 깜박일 경우 생각해서 범위 정함.
-        if 1 < time_blink < 10:
-            time_blink = 0
-            count += 1 
+    if len(blinkingState) == 2:
+        if blinkingState[1] - blinkingState[0] == -1:
+            count += 1
+            print("카운트 됨")
+        else:
+            print("blinkingState = [" + str(blinkingState[0]) + ", " + str(blinkingState[1]) + "]")
+        del blinkingState[0]
 
     cv2.putText(frame, text, (90, 60), cv2.FONT_HERSHEY_DUPLEX, 1.6, (147, 58, 31), 2)
 
