@@ -1,0 +1,44 @@
+html, body{
+    width: 80%;
+    height: 70%;
+    padding: 0;
+    margin: 0;
+    font-size: 0;
+    bottom: 10px;
+    }
+    
+    svg{
+    
+    width: 30%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+    position:relative;
+    left: 100%;
+    bottom: 10px;
+    }
+    
+    h1{
+    width: 100%;
+    font-family: sans-serif;
+    position:absolute;
+    text-align:center;
+    color:white;
+    font-size: 18px;
+    top: 40%;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -webkit-transition: opacity 1s ease-in-out;
+    }
+    
+    h1 a{
+      color: #48b1f4;
+      text-decoration:none;
+    }
+    
+    path{
+    stroke-linecap: square;
+    stroke: white;
+    stroke-width: 0.5px;
+    }
