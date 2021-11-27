@@ -1,0 +1,33 @@
+svg{
+position: absolute; 
+left:70%;
+top:40%;
+width: 20%;
+height: 30%;
+transform: scaleX(-1);
+}
+
+h1{
+width: 100%;
+font-family: sans-serif;
+/* position:absolute;
+text-align:center; */
+color:white;
+font-size: 18px;
+top: 40%;
+opacity: 1;
+transition: opacity 1s ease-in-out;
+-moz-transition: opacity 1s ease-in-out;
+-webkit-transition: opacity 1s ease-in-out;
+}
+
+h1 a{
+  color: #797c7e;
+  text-decoration:none;
+}
+
+path{
+stroke-linecap: square;
+stroke: white;
+stroke-width: 0.5px;
+}
