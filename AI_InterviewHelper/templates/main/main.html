@@ -24,6 +24,9 @@
 						</div>
 						<div class="content">
 							<div class="inner">
+								{% block content %}
+								<h2>Welcome! {{ logininfo }}</h2>
+								{% endblock %}
 								<h1>AI Interview helper</h1>
 								<p>We will help you to not only practice how to fluently talk in interviews, 
 								but also make you see your own interview</p>
@@ -39,7 +42,8 @@
 								<li><a href="#work">Work</a></li>
 								<li><a href="#about">About</a></li>
 								<li><a href="#contact">Contact</a></li>
-								<li><a href="ai/mypage">myPage</a>
+								<li><a href="/mypage">myPage</a>
+								
 								<!--<li><a href="#elements">Elements</a></li>-->
 							</ul>
 						</nav>
@@ -141,8 +145,8 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 				<!-- Footer -->
 					<footer id="footer">
 						<p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
-						<p><a href="/login">LOGIN</a></p>
-						<p><a href="/signin">SIGN IN</a></p>
+						<p><a href="/logout">LOGOUT</a></p>
+						
 					</footer>
 
 			</div>

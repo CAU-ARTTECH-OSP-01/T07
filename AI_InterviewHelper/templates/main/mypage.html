@@ -21,13 +21,14 @@
 						</div>
 						<div class="content">
 							<div class="inner">
-								<h1>My Page </h1>
-								
+							{% block content %}
+								<h1>{{ account['user_name'] }}'s My Page </h1>
+															
 							</div>
 						</div>
                         <nav>
 							<ul>
-								<li><a href="/interview">My interview</a></li>
+								<li><a href="/interview/{{account['user_name']}}">My interview</a></li>
 								<li><a href="#account">My Account</a></li>
 								<li><a href="#info">info</a></li>
 								<!--<li><a href="#"></a></li>-->
@@ -41,11 +42,10 @@
 							<article id="account">
 								<h2>My account</h2>
 								<br>
-                                <p>id</p>
-                                <p>email</p>                            
+                                <p>id : {{account['user_name']}}</p>
                             </article>
-						
 						</div>
+						{% endblock %}
 						
 						
 					
