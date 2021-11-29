@@ -1,0 +1,155 @@
+@charset "EUC-KR";
+
+/* * Local selectors */
+#container {
+  margin: 0px auto;
+  margin-top: 0px;
+  width: 300px;
+  height: 200px;
+  border: 10px #333 solid;
+  background-color: black;
+}
+
+#container #videoElement {
+  width: auto;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  background-color: black;
+}
+
+#control {
+  margin-top: 40px;
+}
+
+button[data-setter] {
+  font-size: 18px;
+  width: 20px;
+  height: 25px;
+  color: #f7958e;
+}
+
+button[data-setter]:hover {
+  opacity: 0.5;
+}
+
+.setters {
+  position: absolute;
+  right: 50px;
+  top: 30px;
+}
+
+.minutes-set {
+  float: left;
+  margin-right: 10px;
+}
+
+.seconds-set {
+  float: right;
+}
+
+.controlls {
+  position: absolute;
+  right: 80px;
+  top: 50px;
+  text-align: center;
+}
+
+.display-remain-time {
+  margin-top: 25px;
+
+  margin-right: 20px;
+  font-family: "Roboto";
+  font-weight: 100;
+  font-size: 25px;
+  color: #f7958e;
+}
+
+#pause {
+  outline: none;
+  background: transparent;
+  border: none;
+  margin-top: 10px;
+  width: 50px;
+  height: 50px;
+  position: relative;
+}
+
+.play::before {
+  display: block;
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 22px solid #f7958e;
+}
+
+.pause::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  width: 15px;
+  height: 30px;
+  background-color: transparent;
+  border-radius: 1px;
+  border: 5px solid #f7958e;
+  border-top: none;
+  border-bottom: none;
+}
+
+#pause:hover {
+  opacity: 0.8;
+}
+
+html,
+body,
+header,
+.view {
+  height: 100%;
+}
+
+@media (max-width: 740px) {
+  html,
+  body,
+  header,
+  .view {
+    height: 100vh;
+  }
+}
+
+.top-nav-collapse {
+  background-color: #78909c !important;
+}
+
+.navbar:not(.top-nav-collapse) {
+  background: transparent !important;
+}
+
+@media (max-width: 991px) {
+  .navbar:not(.top-nav-collapse) {
+    background: #78909c !important;
+  }
+}
+
+h1 {
+  letter-spacing: 8px;
+}
+
+h5 {
+  letter-spacing: 3px;
+}
+
+.hr-light {
+  border-top: 3px solid #fff;
+  width: 80px;
+}
+
+.titlefont {
+  font-size: 40px;
+  color: white;
+  font-weight: bold;
+}

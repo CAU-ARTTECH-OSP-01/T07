@@ -5,8 +5,8 @@ def dbInterview(data_list):
                     host='localhost',
                     port = 3306,
                     user='root',
-                    passwd='tiger',
-                    db = 'mypage',
+                    passwd='hojin0215!',
+                    db = 'userlist',
                     charset='utf8')
 
     cursor = db.cursor()
@@ -14,6 +14,6 @@ def dbInterview(data_list):
     cursor.execute(sql)
     db.commit()
 
-    data_list = cur.fetchall()
+    data_list = cursor.fetchall()
     print(data_list[0])
     db.close()

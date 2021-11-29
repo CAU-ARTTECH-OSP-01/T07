@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maxinum-scale=1, user-scalable=no">
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+		
+		<title>post page</title>
+	</head>
+	<body>
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+		<!--LOGO-->
+		<a class="navbar-brand" href="/">HOME</a>
+		<!--Links-->
+		<div class="container-fluid full-width">
+		<ul class="nav navbar-nav">
+		<li class="nav-item active">
+			<a class="nav-link" href="/post">Post</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="#">Post2</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="#">Post3</a>
+		</li>
+		</ul>
+		<div>
+		{% if logininfo %}
+		<button class="btn btn-dark btn-right" type="button" onclick="location.href='/logout'">로그아웃</button>
+		{% else %}
+		<button class="btn btn-dark btn-right" type="button" onclick="location.href='/login'">로그인</button>
+		{% endif %}
+		<button class="btn btn-dark btn-right" type="button" onclick="location.href='/write'"><strong>게시글쓰기</strong></button>
+		</div>
+	</nav>
+	</div>
+
+	<div class="container">
+	<br><h1><strong><a style="color:#110957;">POST PAGE</a></strong></h1>
+	<table class="table table-hover">
+		<thead>
+		<tr>
+			<th>번호</th>
+			<th>제목</th>
+			<th>작성자</th>
+			<th>날짜</th>
+			<th>조회수</th>
+		</tr>
+		</thead>
+
+		<tbody>
+		{% for post in postlist %}
+		<tr>
+			<td>{{post['id']}}</td>
+			<td><a style="color:#110957;" href="/post/content/{{post['id']}}">{{post['title']}}</a></td>
+			<td>{{post['name']}}</td>
+			<td>{{post['wdate']}}</td>
+			<td>{{post['view']}}</td>
+		</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+	</div>
+	</body>
+</html>
