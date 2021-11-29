@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>voice - text</title>
+   </head>
+	<body>
+	<div id="speechContainer">
+		<h1>say something</h1>
+		<form method="post" enctype="multipart/form-data">
+			<br>
+		</form>
+		{% if transcript != "" %}
+			<div id="speechTranscriptContainer">
+				<h1>transcript</h1>
+				<p id="speechText">{{transcript}}</p>
+			</div>
+		{% endif %}
+	</div>
+	</body>
+	</html>

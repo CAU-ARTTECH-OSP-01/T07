@@ -4,7 +4,7 @@ from flask_bootstrap import Bootstrap
 from camera import VideoCamera
 import pymysql
 from PythonApplication1 import print_sound
-
+from voicerecognition import voiceReco
 
 app = Flask(__name__)
 app.secret_key = 'super secret key'
@@ -49,6 +49,11 @@ def audio():
         duration = 10
         sd.sleep(duration * 1000)
     
+
+@app.route('/test1')
+def speechtest():
+    transcript = voiceReco()
+    return render_template("/companies/test.html", transcript=transcript)
 
 @app.route('/')
 def main():
