@@ -40,6 +40,8 @@ def video_feed():
     return Response(gen(VideoCamera()),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
+
+
 @app.route('/aud')
 def aud():
     return render_template("/companies/popup.html")
