@@ -13,10 +13,9 @@
     pip install sounddevice
     pip install tensorflow
     pip install cv2
-    
-    Also We used Oracle MySql for database 
 ```
-    
+> Also We used Oracle MySql for database 
+    ![MySQL](https://user-images.githubusercontent.com/93374409/144154665-89458a8b-9ff9-4299-9117-794a5d3d0d06.png)
 ## #.xml
 > You will need 2 haarcascade file. 
 ```
