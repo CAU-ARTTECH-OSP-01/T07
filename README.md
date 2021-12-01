@@ -1,5 +1,5 @@
 # T07 AI Interview Helper
-    Due to the Covid, many companies have changed their recruition by having AI interview.  
+> Due to the Covid, many companies have changed their recruition by having AI interview.  
 # 
 
 ## #Installation
@@ -13,16 +13,15 @@
     pip install sounddevice
     pip install tensorflow
     pip install cv2
-    
 ```
     
 ## #.xml
-    You will need 2 haarcascade file. 
+> You will need 2 haarcascade file. 
 ```
     haarcascade_frontalface_default.xml
     haarcascade_eye.xml
 ```
-    These two xml file is in Haarcascades file in AIInterviewProject file 
+> These two xml file is in Haarcascades file in AIInterviewProject file 
     
 
 
