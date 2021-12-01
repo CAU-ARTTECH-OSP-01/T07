@@ -13,6 +13,8 @@
     pip install sounddevice
     pip install tensorflow
     pip install cv2
+    
+    Also We used Oracle MySql for database 
 ```
     
 ## #.xml
@@ -21,19 +23,29 @@
     haarcascade_frontalface_default.xml
     haarcascade_eye.xml
 ```
-> These two xml file is in Haarcascades file in AIInterviewProject file 
+> These two xml file is in Haarcascades file in AI_InterviewHelper file 
     
 
 
-# 코드 입력 방법
+# 1. How To Use Flask 
+~~~
+from flask import Flask, render_template, Response, session, url_for, request,redirect
+from flask_bootstrap import Bootstrap
 
-```
-코드 작성하기
-```
 
-```python
-print(Hi)
-```
+app = Flask(__name__)
+Bootstrap(app)
+
+
+@app.route('/')
+def main():
+    return render_template('/main/main.html')
+
+
+if __name__ == '__main__':
+    app.run(host='127.0.0.1',port=5000, debug=True)
+~~~
+
 
 # +,-,\* 을 통해 tab으로 출력하기
 
