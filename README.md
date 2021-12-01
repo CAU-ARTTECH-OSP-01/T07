@@ -15,7 +15,7 @@
     pip install cv2
 ```
 > Also We used Oracle MySql for database 
-    <img src="![MySQL](https://user-images.githubusercontent.com/93374409/144154665-89458a8b-9ff9-4299-9117-794a5d3d0d06.png)" width=100px height=auto>
+    <img src="https://user-images.githubusercontent.com/93374409/144154665-89458a8b-9ff9-4299-9117-794a5d3d0d06.png" width="300" height="auto">
     
 ## #.xml
 > You will need 2 haarcascade file. 
