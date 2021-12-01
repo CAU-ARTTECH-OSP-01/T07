@@ -1,10 +1,30 @@
-# T07
+# T07 AI Interview Helper
+    Due to the Covid, many companies have changed their recruition by having AI interview.  
+# 
 
-# README 작성 요령
+## #Installation
 
-## #의 개수에 따른 강조표시
+```
+    pip install Flask 
+    pip install Flask-Bootstrap
+    pip install opencv-python
+    pip install numpy
+    pip install speechrecognition
+    pip install sounddevice
+    pip install tensorflow
+    pip install cv2
+    
+```
+    
+## #.xml
+    You will need 2 haarcascade file. 
+```
+    haarcascade_frontalface_default.xml
+    haarcascade_eye.xml
+```
+    These two xml file is in Haarcascades file in AIInterviewProject file 
+    
 
-    개수가 많아질수록 크기가 작아짐
 
 # 코드 입력 방법
 
