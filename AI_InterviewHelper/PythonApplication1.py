@@ -2,6 +2,7 @@ import sounddevice as sd
 from numpy import linalg as LA
 import numpy as np
 from jinja2 import Environment, FileSystemLoader
+from bs4 import BeautifulSoup
 duration = 20  # seconds <- duration 자체를 짧게 끊어서 본 지속시간동안 cnt 값이 일정 수준 이상 증가하면 check가 이루어질 수 있도록 하는 것은?
 
 global cnt
@@ -26,15 +27,16 @@ def print_sound(indata, outdata, frames, time, status):
     if cnt == 300: # duration = 20일 경우 cnt = 771까지 기록되어질 수 있음
         check_cnt += 1
         env = Environment(loader=FileSystemLoader('templates'))
-        template = env.get_template('companies/popup.html')
-        text = "You are too quiet! Now you're checked "+str(check_cnt)+" times"
-        output_from_parsed_template = template.render(test=text)
-        print(output_from_parsed_template)
-
-        with open("templates\companies\popup.html", "w") as fh:
-            fh.write(output_from_parsed_template)
+        voiceleveltext = "You're checked "+str(check_cnt)+" times of quietness."
+        print(voiceleveltext)
+        with open('templates/companies/popup.html') as html_file:
+            soup = BeautifulSoup(html_file.read(), features="html.parser")
+            for tag in soup.find_all(id='voiceleveltext'):
+                tag.string.replace_with(voiceleveltext)
+            new_text = soup.prettify()
+        with open('templates/companies/popup.html', mode='w') as  new_html_file:
+            new_html_file.write(new_text)
         cnt = 0; # cnt 초기화
-        
     
     #print("present count:", cnt, "present volume", a, "Check!", check_cnt) #print 되는 속도를 늦추거나 혹은 측정 속도를 늦출 수 있는 방법은?
     # if check_cnt >= 1:

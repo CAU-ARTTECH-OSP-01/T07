@@ -43,19 +43,11 @@ def video_feed():
 
 
 @app.route('/aud')
-def aud():
-    return render_template("/companies/popup.html")
-
 def audio():
     with sd.Stream(callback=print_sound):
-        duration = 10
+        duration = 20
         sd.sleep(duration * 1000)
-    
-
-@app.route('/test1')
-def speechtest():
-    transcript = voiceReco()
-    return render_template("/companies/test.html", transcript=transcript)
+    return render_template("/companies/test.html")
 
 @app.route('/')
 def main():
@@ -81,6 +73,7 @@ def testCate():
 def companies():
     return render_template('/main/companies.html')
 
+
 @app.route('/samsung', methods=['GET'])
 def samsung():
     return render_template('/companies/samsung.html')
@@ -96,23 +89,44 @@ def mypage():
     
     return redirect(url_for('login'))
 
-@app.route('/popup')
+@app.route('/popup', methods=["GET"])
 def popup():
-    return render_template('/companies/popup.html')
+    if 'loggedin' in session:
+        conn = connectsql()
+        cursor = conn.cursor(pymysql.cursors.DictCursor)
+        cursor.execute('SELECt * FROM tbl_user WHERE user_name =%s', (session['username']))
+        account = cursor.fetchone()
+        return render_template('/companies/popup.html', account=account)
+    return redirect(url_for('login'))
 
-@app.route('/questions')
+@app.route('/questions', methods=["GET","POST"])
 def questions():
-    conn = connectsql()
-    cursor = conn.cursor(pymysql.cursors.DictCursor)
-    sql = "select questions from questions order by rand() limit 1"
-    cursor.execute(sql)
-    
+    if request.method=='POST':
+        id = request.form['id']
+        blinkcnt = request.form['blinkcnt']
+        voiceleveltext = request.form['voiceleveltext']
+        conn = connectsql()
+        cursor = conn.cursor()
+        sql = "INSERT INTO INTERVIEWS (id, blinkcnt, voiceleveltext) VALUES (%s, %s, %s)"
+        value = (id, blinkcnt, voiceleveltext)
+        cursor.execute("set names utf8")
+        cursor.execute(sql, value)
+ 
+        data = cursor.fetchall()
+        cursor.close()
+        conn.close()
+        return redirect(url_for('questions'))
 
-    data_questions = cursor.fetchall()
-    cursor.close()
-    conn.close()
+    else:
+        conn = connectsql()
+        cursor = conn.cursor(pymysql.cursors.DictCursor)
+        sql = "select questions from questions order by rand() limit 1"
+        cursor.execute(sql)
+        data_questions = cursor.fetchall()
+        cursor.close()
+        conn.close()
 
-    return render_template('/companies/questions.html',data_questions=data_questions)
+        return render_template('/companies/questions.html',data_questions=data_questions)
 
 
 @app.route('/interview/<user_name>', methods=['GET','POST'])

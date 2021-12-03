@@ -50,19 +50,37 @@ if __name__ == '__main__':
 ~~~
 
 
-# +,-,\* 을 통해 tab으로 출력하기
+# Using MySql 
+    We needed 3 database table
+    - 1. User information 
+    ~~~
+    CREATE TABLE tbl_user(
+        user_name not null varchar2(255) primary key,
+        user_pw not null varchar2(255) 
+    )
+    ~~~
+    <br>
+    - 2.interview table
+    ~~~
+    CREATE TABLE interview(
+        NO int not null auto_increment primary key,
+        id varchar2(255) not null, //<- this is going to be joining with the tbl_user table
+        DATE timestamp not null,
+        context varchar(100)
+        );
+    ~~~
 
-- 안녕
-  - Hi
-    - Hello
+    <br>
+    - 3.Questions table
+    ~~~
+        CREATE TABLE questions(
+            NO int not null auto_increment primary key,
+            companies varchar(100),
+            questions varchar(500)
+        );
+    ~~~
 
-* 안녕
-  - Hi
-    - Hello
 
-- 안녕
-  - Hi
-    - Hello
 
 # 수평선 만들기
 

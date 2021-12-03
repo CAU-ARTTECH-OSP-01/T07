@@ -24,11 +24,26 @@
 						</div>
 					</div>				
 				</header>
+			
 				<div id="container" style="width: auto; height: 300px;">
 					<img id="videoElement" src="{{ url_for('video_feed') }}"/>
 				</div>
 				
-	
+				<input type="button" id='aud' name="aud" onclick="aud()" style="opacity: 0.0">
+				<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+				<script>
+					jQuery(function(){
+						jQuery('#aud').click();
+					});
+					
+					function aud(){
+						$.ajax({
+						url: "/aud",
+						context: document.body
+						}).done();
+					}
+				</script>
 			
 				<!-- Timer -->
 					<div class="setters">
