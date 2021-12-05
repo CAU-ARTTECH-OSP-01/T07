@@ -53,32 +53,33 @@ if __name__ == '__main__':
 # Using MySql 
     We needed 3 database table
     - 1. User information 
-    ~~~
+    '''
     CREATE TABLE tbl_user(
         user_name not null varchar2(255) primary key,
         user_pw not null varchar2(255) 
     )
-    ~~~
-    <br>
+    '''
+    
     - 2.interview table
-    ~~~
-    CREATE TABLE interview(
+    '''
+    CREATE TABLE interviews(
         NO int not null auto_increment primary key,
-        id varchar2(255) not null, //<- this is going to be joining with the tbl_user table
-        DATE timestamp not null,
-        context varchar(100)
-        );
-    ~~~
+        id varchar(255) not null,
+        DATE TIMESTAMP ON UPDATE CURRENT_TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+        blinkcnt varchar(500),
+        voiceleveltext varchar(500)
+    );
 
-    <br>
-    - 3.Questions table
-    ~~~
+    '''
+
+   - 3.Questions table
+    '''
         CREATE TABLE questions(
             NO int not null auto_increment primary key,
             companies varchar(100),
             questions varchar(500)
         );
-    ~~~
+    '''
 
 
 
