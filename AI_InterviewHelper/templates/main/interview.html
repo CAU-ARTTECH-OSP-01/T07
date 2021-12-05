@@ -31,8 +31,9 @@
 															{% for i in data_list %}
 															<tr>
 																<td>{{i['NO']}}<td>
+																<td>{{i['id']}}<td>
 																<td>{{i['DATE']}}<td>
-																<td><a href="#content/{NO}">{{i['context']}}<td>
+																<td><a href="#content">Go See your test result</a><td>
 																																
 															</tr>
 															{% endfor %}
@@ -44,12 +45,16 @@
 						</div>
 						</header>
 						<div id="main">
-						
+							{% for data_list in data_list%}
 						
 							<!-- Intro -->
 								<article id="content">
-									{% for dat_list in data_list%}
+								
 									<h2 class="major">{{data_list['DATE']}}</h2>
+									<p>{{data_list['blinkcnt']}}</p>
+									<br>
+									<p>{{data_list['voiceleveltext']}}</p>
+
 									{% endfor %}
 									<span class="image main"><img src="{{ url_for('static', filename='images/pic01.jpg') }}" alt="" /></span>
 									<p><a href="#work">awesome work</a>.</p>

@@ -4,6 +4,16 @@ CREATE TABLE interview(
     context varchar(100)
 );
 
+
+CREATE TABLE interviews(
+	NO int not null auto_increment primary key,
+    id varchar(255) not null,
+    DATE TIMESTAMP ON UPDATE CURRENT_TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+	blinkcnt varchar(500),
+    voiceleveltext varchar(500)
+);
+
+
 INSERT INTO interview (DATE, context) VALUES ("20211120","HI");
 select * from interview;
 

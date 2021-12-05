@@ -51,7 +51,7 @@ class VideoCamera(object):
                         new_html_file.write(new_text)
             cv2.putText(fr, pred, (x, y), font, 1, (255, 255, 0), 2)
             
-            
+            cnt=0
 
         _, jpeg = cv2.imencode('.jpg', fr)
         return jpeg.tobytes()

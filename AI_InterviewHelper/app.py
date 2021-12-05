@@ -109,12 +109,10 @@ def questions():
         cursor = conn.cursor()
         sql = "INSERT INTO INTERVIEWS (id, blinkcnt, voiceleveltext) VALUES (%s, %s, %s)"
         value = (id, blinkcnt, voiceleveltext)
-        cursor.execute("set names utf8")
         cursor.execute(sql, value)
  
         data = cursor.fetchall()
-        cursor.close()
-        conn.close()
+        conn.commit()
         return redirect(url_for('questions'))
 
     else:
@@ -133,7 +131,7 @@ def questions():
 def interview(user_name):
     conn = connectsql()
     cursor = conn.cursor(pymysql.cursors.DictCursor)
-    sql = "select NO, DATE, context from interview"
+    sql = "select * from interviews"
     cursor.execute(sql)
     data_list = cursor.fetchall()
     cursor.close()
