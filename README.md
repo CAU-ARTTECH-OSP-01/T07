@@ -53,12 +53,15 @@ if __name__ == '__main__':
 ---
 >We needed 3 database table
 >1. User information 
-    CREATE TABLE tbl_user(
+```
+  CREATE TABLE tbl_user(
     user_name not null varchar2(255) primary key,
     user_pw not null varchar2(255) 
     );
-    
->2.interview table    
+```
+
+>2.interview table
+```    
     CREATE TABLE interviews(
         NO int not null auto_increment primary key,
         id varchar(255) not null,
@@ -66,7 +69,7 @@ if __name__ == '__main__':
         blinkcnt varchar(500),
         voiceleveltext varchar(500)
     );
-
+```
 
 >3.Questions table
 
