@@ -1,7 +1,5 @@
 # T07 AI Interview Helper
 > Due to the Covid, many companies have changed their recruition by having AI interview.  
-# 
-
 
 ## #Installation
 
@@ -30,7 +28,8 @@
     
 
 
-# 1. How To Use Flask 
+# 1. How To Use Flask
+---- 
 ~~~
 from flask import Flask, render_template, Response, session, url_for, request,redirect
 from flask_bootstrap import Bootstrap
@@ -50,18 +49,16 @@ if __name__ == '__main__':
 ~~~
 
 
-# Using MySql 
-    We needed 3 database table
-    - 1. User information 
-    '''
+# 2. Using MySql 
+---
+>We needed 3 database table
+>1. User information 
     CREATE TABLE tbl_user(
-        user_name not null varchar2(255) primary key,
-        user_pw not null varchar2(255) 
-    )
-    '''
+    user_name not null varchar2(255) primary key,
+    user_pw not null varchar2(255) 
+    );
     
-    - 2.interview table
-    '''
+>2.interview table    
     CREATE TABLE interviews(
         NO int not null auto_increment primary key,
         id varchar(255) not null,
@@ -70,16 +67,14 @@ if __name__ == '__main__':
         voiceleveltext varchar(500)
     );
 
-    '''
 
-   - 3.Questions table
-    '''
-        CREATE TABLE questions(
-            NO int not null auto_increment primary key,
-            companies varchar(100),
-            questions varchar(500)
-        );
-    '''
+>3.Questions table
+
+    CREATE TABLE questions(
+        NO int not null auto_increment primary key,
+        companies varchar(100),
+        questions varchar(500)
+    );
 
 
 
