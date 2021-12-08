@@ -1,60 +1,75 @@
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
-<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
-<link href="{{ url_for('static', filename='/assets/css/main.css') }}" rel="stylesheet"/>
+<meta charset="utf-8" />
+<meta
+  content="width=device-width, initial-scale=1, user-scalable=no"
+  name="viewport"
+/>
+<meta
+  content="width=device-width, initial-scale=1, user-scalable=no"
+  name="viewport"
+/>
+<link
+  href="{{ url_for('static', filename='/assets/css/main.css') }}"
+  rel="stylesheet"
+/>
 <noscript>
- <link href="{{ url_for('static', filename='/assets/css/noscript.css') }}" rel="stylesheet"/>
+  <link
+    href="{{ url_for('static', filename='/assets/css/noscript.css') }}"
+    rel="stylesheet"
+  />
 </noscript>
 <body class="is-preload">
- <div id="wrapper">
-  <!-- Header -->
-  <header id="header">
-   <div class="content">
-    <div class="inner">
-     <form action="/db" method="post">
-      <table>
-       <thead>
-        <th>
-         Id
-        </th>
-        <th>
-         Blink Count
-        </th>
-        <th>
-         Quietness
-        </th>
-       </thead>
-       <tbody>
-        <td>
-         <textarea id="id" name="id" readonly="">
+  <div id="wrapper">
+    <!-- Header -->
+    <header id="header">
+      <div class="content">
+        <div class="inner">
+          <form action="/db" method="post">
+            <table>
+              <thead>
+                <th>Id</th>
+                <th>Blink Count</th>
+                <th>Quietness</th>
+              </thead>
+              <tbody>
+                <td>
+                  <textarea id="id" name="id" readonly="">
                 {{account['user_name']}}
-        </textarea>
-        </td>
-        <td>
-         <textarea id="blinkcnt" name="blinkcnt" readonly="">you have blinked 1 times</textarea>
-        </td>
-        <td>
-         <textarea id="voiceleveltext" name="voiceleveltext" readonly="">You're checked 3 times of quietness.</textarea>
-        </td>
-       </tbody>
-      </table>
-      <button>
-       NEXT QUESTION
-      </button>
-     </form>
-    </div>
-   </div>
-  </header>
- </div>
- <!-- Scripts -->
- <script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}">
- </script>
- <script src="{{ url_for('static', filename='assets/js/browser.min.js') }}">
- </script>
- <script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}">
- </script>
- <script src="{{ url_for('static', filename='assets/js/util.js') }}">
- </script>
- <script src="{{ url_for('static', filename='assets/js/main.js') }}">
- </script>
+        </textarea
+                  >
+                </td>
+                <td>
+                  <textarea id="blinkcnt" name="blinkcnt" readonly="">
+you have blinked 1 times</textarea
+                  >
+                </td>
+                <td>
+                  <textarea
+                    id="voiceleveltext"
+                    name="voiceleveltext"
+                    readonly=""
+                  >
+You're checked 3 times of quietness.</textarea
+                  >
+                </td>
+              </tbody>
+            </table>
+            <button>
+              <!-- <a
+                href="#;"
+                onclick="opener.location.href='open.html';window.close();"
+                style="text-decoration: none"
+                >NEXT QUESTION</a
+              > -->
+            </button>
+          </form>
+        </div>
+      </div>
+    </header>
+  </div>
+  <!-- Scripts -->
+  <script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/js/browser.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
 </body>
