@@ -47,7 +47,7 @@ def audio():
     with sd.Stream(callback=print_sound):
         duration = 20
         sd.sleep(duration * 1000)
-    return render_template("/companies/test.html")
+    return render_template("/companies/popup.html")
 
 @app.route('/')
 def main():
@@ -68,6 +68,15 @@ def main():
 def testCate():
     print("testCategories: get")
     return render_template('/main/testCategories.html')
+
+@app.route('/qList', methods=['GET'])
+def qList():
+        conn = connectsql()
+        cursor = conn.cursor(pymysql.cursors.DictCursor)
+        cursor.execute('SELECT * FROM questions')
+        qList= cursor.fetchall()
+        return render_template('/companies/qList.html', qList=qList)
+
 
 @app.route('/companies', methods=['GET'])
 def companies():
@@ -94,13 +103,13 @@ def popup():
     if 'loggedin' in session:
         conn = connectsql()
         cursor = conn.cursor(pymysql.cursors.DictCursor)
-        cursor.execute('SELECt * FROM tbl_user WHERE user_name =%s', (session['username']))
+        cursor.execute('SELECT * FROM tbl_user WHERE user_name =%s', (session['username']))
         account = cursor.fetchone()
         return render_template('/companies/popup.html', account=account)
-    return redirect(url_for('login'))
+    return redirect(url_for('mypage'))
 
-@app.route('/questions', methods=["GET","POST"])
-def questions():
+@app.route('/db', methods=["GET","POST"])
+def db():
     if request.method=='POST':
         id = request.form['id']
         blinkcnt = request.form['blinkcnt']
@@ -113,9 +122,11 @@ def questions():
  
         data = cursor.fetchall()
         conn.commit()
-        return redirect(url_for('questions'))
+        return redirect(url_for('mypage'))
 
-    else:
+
+@app.route('/questions', methods=["GET","POST"])
+def questions():
         conn = connectsql()
         cursor = conn.cursor(pymysql.cursors.DictCursor)
         sql = "select questions from questions order by rand() limit 1"
@@ -131,7 +142,7 @@ def questions():
 def interview(user_name):
     conn = connectsql()
     cursor = conn.cursor(pymysql.cursors.DictCursor)
-    sql = "select * from interviews"
+    sql =  f"select * from interviews WHERE id LIKE '%{user_name}%'"   
     cursor.execute(sql)
     data_list = cursor.fetchall()
     cursor.close()

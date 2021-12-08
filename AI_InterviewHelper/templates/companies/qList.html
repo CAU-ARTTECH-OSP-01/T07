@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="{{ url_for('static', filename='/assets/css/timer.css') }}" />	-->
+	<link rel="stylesheet" href="{{ url_for('static', filename='/assets/css/audio.css') }}" />	 
+	<link rel="stylesheet" href="{{ url_for('static', filename='/assets/css/main.css') }}" />
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+
+<noscript><link rel="stylesheet" href="{{ url_for('static', filename='/assets/css/noscript.css') }}" /></noscript>
+
+	</head>
+	<body class="is-preload">
+	<!-- Wrapper -->
+			<div id="wrapper">
+				<!-- Header -->
+				<header id="header">
+					<div class="content">
+						<div class="inner">
+                            <h1>Questions List </h1>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>&nbsp;Companies</td>
+                                        <th>&nbsp;Questions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for i in qList%}
+                                    <tr>
+                                        <td>{{i['companies']}}</td>
+                                        <td>{{i['questions']}}</td>
+
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+
+                            </table>
+							
+						</div>
+					</div>				
+				</header>
+                    <input type="button" value="Go Back" onclick="location.href='/testCategories'">
+                </div>
+			
+				
+							
+				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+						<p><a href="ai/login">LOGIN</a></p>
+					</footer>
+
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+			<script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='assets/js/browser.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
+			<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+			<script src="{{ url_for('static', filename='assets/js/timer.js') }}"></script>
+			<script src="{{ url_for('static', filename='assets/js/audio.js') }}"></script>
+			
+			<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+				  
+	</body>
+</html>

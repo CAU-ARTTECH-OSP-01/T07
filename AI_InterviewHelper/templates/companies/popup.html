@@ -11,7 +11,7 @@
   <header id="header">
    <div class="content">
     <div class="inner">
-     <form action="/questions" method="post">
+     <form action="/db" method="post">
       <table>
        <thead>
         <th>
@@ -27,21 +27,19 @@
        <tbody>
         <td>
          <textarea id="id" name="id" readonly="">
-            {% block content %}
                 {{account['user_name']}}
-            {% endblock %}
         </textarea>
         </td>
         <td>
          <textarea id="blinkcnt" name="blinkcnt" readonly="">you have blinked 1 times</textarea>
         </td>
         <td>
-         <textarea id="voiceleveltext" name="voiceleveltext" readonly="">You're checked 5 times of quietness.</textarea>
+         <textarea id="voiceleveltext" name="voiceleveltext" readonly="">You're checked 3 times of quietness.</textarea>
         </td>
        </tbody>
       </table>
       <button>
-       Next question
+       NEXT QUESTION
       </button>
      </form>
     </div>

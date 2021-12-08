@@ -18,51 +18,32 @@
 							<h1>My Page-Interview List </h1>
 								<h2>My interview</h2>								
 								<table>
-														<thead>
-															<tr>
-																<th>NO.</th>
-																<th>I D</td>
-																<th>DATE</th>
-																<th>context</th>
-															</tr>
-														</thead>
-				
-														<tbody>
-															{% for i in data_list %}
-															<tr>
-																<td>{{i['NO']}}<td>
-																<td>{{i['id']}}<td>
-																<td>{{i['DATE']}}<td>
-																<td><a href="#content">Go See your test result</a><td>
-																																
-															</tr>
-															{% endfor %}
-														</tbody>
-													</table>
-												
-												<br>
-						</div>
-						</div>
-						</header>
-						<div id="main">
-							{% for data_list in data_list%}
-						
-							<!-- Intro -->
-								<article id="content">
-								
-									<h2 class="major">{{data_list['DATE']}}</h2>
-									<p>{{data_list['blinkcnt']}}</p>
-									<br>
-									<p>{{data_list['voiceleveltext']}}</p>
-
-									{% endfor %}
-									<span class="image main"><img src="{{ url_for('static', filename='images/pic01.jpg') }}" alt="" /></span>
-									<p><a href="#work">awesome work</a>.</p>
-									<p></p>
-								</article>
-						</div>
-
-
+									<thead>
+										<tr>
+											<th>&nbsp; NO.</th>
+											<th>&nbsp;I D</td>
+											<th>&nbsp;DATE</th>
+											<th>&nbsp;Total Blink Count</th>
+											<th>&nbsp;Quietness</th>
+										</tr>
+									</thead>
+									<tbody>
+										{% for i in data_list %}
+										<tr>
+											<td>{{i['NO']}}</td>
+											<td>{{i['id']}}</td>
+											<td>{{i['DATE']}}</td>
+											<td>{{i['blinkcnt']}}</td>	
+											<td>{{i['voiceleveltext']}}</td>																																
+										</tr>
+										{% endfor %}
+									</tbody>
+								</table>
+							
+							<br>
+			</div>
+			</div>
+			</header>
 						<!-- Footer -->
 					<footer id="footer">
 						<p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
