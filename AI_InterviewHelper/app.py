@@ -13,14 +13,15 @@ app.config['SESSION_TYPE'] = 'filesystem'
 Bootstrap(app)
 
 
+# 개인 수정 필요 부분
 
 def connectsql():
     db = pymysql.connect(
                     host='localhost',
                     port = 3306,
                     user='root',
-                    passwd='tiger',
-                    db = 'mypage',
+                    passwd='1234',
+                    db = 'Own_DB_Name',
                     charset='utf8')
     return db
 
