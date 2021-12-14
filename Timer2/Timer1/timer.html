@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>TIMER</title>
+    <link rel="stylesheet" href="css/timer.css" />
+    <script src="js/timer.js"></script>
+  </head>
+  <body>
+    <div class="containerMrs">
+      <p id="output"><b>00:00</b></p>
+      <div id="controls" align="center">
+        <button id="startPause" onclick="startPause()">
+          <b id="start">시작</b>
+        </button>
+        <button onclick="reset()" id="reset"><b id="reset">리셋</b></button>
+      </div>
+    </div>
+    <center>
+      <h1 id="stopTime"></h1>
+      <h1 id="breaktime"></h1>
+    </center>
+  </body>
+</html>
