@@ -9,6 +9,7 @@ global check_cnt
 cnt = 0
 check_cnt = 0
 
+
 def print_sound(indata, outdata, frames, time, status):
     volume_norm = np.linalg.norm(indata)*10# 초기값 10 > 5로 변화 주었을 때 출력 값이 절반 정도로 보여짐
   
@@ -20,10 +21,11 @@ def print_sound(indata, outdata, frames, time, status):
     global cnt
     global check_cnt
 
-    if a <= 25: # 정적 시 값이 환경에 따라 달라지므로 매번 새로 구해야 할 필요성 존재-> 통상적으로 어느정도 큰 목소리로 말할때 30을 넘기 때문에 고정값 28+_1 을 해도 될 것 같음.
+    if a <= 28: # 정적 시 값이 환경에 따라 달라지므로 매번 새로 구해야 할 필요성 존재-> 통상적으로 어느정도 큰 목소리로 말할때 30을 넘기 때문에 고정값 28+_1 을 해도 될 것 같음.
         cnt = cnt + 1
     
-    if cnt == 200: # duration = 20일 경우 cnt = 771까지 기록되어질 수 있음
+
+    if cnt == 300: # duration = 20일 경우 cnt = 771까지 기록되어질 수 있음
         check_cnt += 1
         env = Environment(loader=FileSystemLoader('templates'))
         voiceleveltext = "You're checked "+str(check_cnt)+" times of quietness."
@@ -35,9 +37,8 @@ def print_sound(indata, outdata, frames, time, status):
             new_text = soup.prettify()
         with open('templates/companies/popup.html', mode='w') as  new_html_file:
             new_html_file.write(new_text)
-    
-    cnt = 0; # cnt 초기화
-    
+
+        cnt = 0  # cnt 초기화
     #print("present count:", cnt, "present volume", a, "Check!", check_cnt) #print 되는 속도를 늦추거나 혹은 측정 속도를 늦출 수 있는 방법은?
     # if check_cnt >= 1:
         # print ("present check:", check_cnt);

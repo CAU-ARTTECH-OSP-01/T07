@@ -4,7 +4,6 @@ from flask_bootstrap import Bootstrap
 from camera import VideoCamera
 import pymysql
 from PythonApplication1 import print_sound
-from voicerecognition import voiceReco
 
 app = Flask(__name__)
 app.secret_key = 'super secret key'
@@ -20,8 +19,8 @@ def connectsql():
                     host='localhost',
                     port = 3306,
                     user='root',
-                    passwd='1234',
-                    db = 'Own_DB_Name',
+                    passwd='tiger',
+                    db = 'mypage',
                     charset='utf8')
     return db
 
@@ -45,10 +44,16 @@ def video_feed():
 
 @app.route('/aud')
 def audio():
-    with sd.Stream(callback=print_sound):
-        duration = 50
-        sd.sleep(duration * 1000)
-    return render_template("/companies/popup.html")
+    if 'loggedin' in session:
+        conn = connectsql()
+        cursor = conn.cursor(pymysql.cursors.DictCursor)
+        cursor.execute('SELECT * FROM tbl_user WHERE user_name =%s', (session['username']))
+        account = cursor.fetchone()
+        with sd.Stream(callback=print_sound):
+            duration = 50
+            sd.sleep(duration * 1000)
+    return render_template("/companies/popup.html", account = account)
+    
 
 @app.route('/')
 def main():
@@ -93,7 +98,7 @@ def mypage():
     if 'loggedin' in session:
         conn = connectsql()
         cursor = conn.cursor(pymysql.cursors.DictCursor)
-        cursor.execute('SELECt * FROM tbl_user WHERE user_name =%s', (session['username']))
+        cursor.execute('SELECT * FROM tbl_user WHERE user_name =%s', (session['username']))
         account = cursor.fetchone()
         return render_template('/main/mypage.html', account=account)
     
@@ -125,20 +130,32 @@ def db():
  
         data = cursor.fetchall()
         conn.commit()
-        return redirect(url_for('mypage'))
+        return render_template("/main/db.html")
 
 
 @app.route('/questions', methods=["GET","POST"])
 def questions():
         conn = connectsql()
         cursor = conn.cursor(pymysql.cursors.DictCursor)
-        sql = "select questions from questions order by rand() limit 1"
+        sql = 'select questions from questions where companies="samsung" order by rand() limit 1'
         cursor.execute(sql)
         data_questions = cursor.fetchall()
         cursor.close()
         conn.close()
 
         return render_template('/companies/questions.html',data_questions=data_questions)
+
+@app.route('/google', methods=["GET","POST"])
+def google():
+        conn = connectsql()
+        cursor = conn.cursor(pymysql.cursors.DictCursor)
+        sql = 'select questions from questions where companies="google" order by rand() limit 1'
+        cursor.execute(sql)
+        data_questions = cursor.fetchall()
+        cursor.close()
+        conn.close()
+
+        return render_template('/companies/google.html',data_questions=data_questions)
 
 
 @app.route('/interview/<user_name>', methods=['GET','POST'])
