@@ -81,11 +81,13 @@ if __name__ == '__main__':
 
 
 
-# 수평선 만들기
+# Question Lists
 
 ---
 
-    프로젝트
+"samsung","What kind of person will you be within next 10 years?"
+"samsung","What will you do if you have a different opinion with your suprior?"
+"samsung","Tell me your biggest merit"
 
 ---
 
