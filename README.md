@@ -89,12 +89,10 @@ if __name__ == '__main__':
 
 # Question Lists
 
----
-
 "samsung","What kind of person will you be within next 10 years?"
 "samsung","What will you do if you have a different opinion with your suprior?"
 "samsung","Tell me your biggest merit"
 
----
-
-    Project
+"google","Imagine if we are your nephew. \nTell us about database"
+"google","What is your favorite Google product? And why?"
+"google","Why do you want to work for Google?"
