@@ -45,7 +45,7 @@ def video_feed():
 @app.route('/aud')
 def audio():
     with sd.Stream(callback=print_sound):
-        duration = 20
+        duration = 50
         sd.sleep(duration * 1000)
     return render_template("/companies/popup.html")
 
@@ -107,6 +107,8 @@ def popup():
         account = cursor.fetchone()
         return render_template('/companies/popup.html', account=account)
     return redirect(url_for('mypage'))
+
+
 
 @app.route('/db', methods=["GET","POST"])
 def db():

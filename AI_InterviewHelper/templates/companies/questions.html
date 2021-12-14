@@ -3,7 +3,7 @@
 <head>
 <title></title>
 	<meta charset="utf-8" />
-	<link rel="stylesheet" href="{{ url_for('static', filename='/assets/css/timer.css') }}" />	-->
+	<link rel="stylesheet" href="{{ url_for('static', filename='/assets/css/timer.css') }}" />
 	<link rel="stylesheet" href="{{ url_for('static', filename='/assets/css/audio.css') }}" />	 
 	<link rel="stylesheet" href="{{ url_for('static', filename='/assets/css/main.css') }}" />
 	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
@@ -64,13 +64,13 @@
 					  <button class="play" id="pause"></button>
 					</div>
 					
-					
-					
-					<input type="button" value="Next question" onclick="popup();" style="margin-top: 40px;">
+					<input type="button" value="RESULT" onclick="popup();" style="margin-top: 5px; float: left;">
+					<input type="button" value="NEXT QUESTION" onclick="location.href='/questions'" style="margin-top: 10px;">
+			
 					<script>
 						function popup(){
 							window.open(
-								"popup",
+								"popup2",
 								"a",
 								"width=400, height=300, left=100, top=50"
 								)
