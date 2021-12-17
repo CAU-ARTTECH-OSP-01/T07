@@ -17,7 +17,7 @@ class FacialExpressionModel(object):
                      "Surprise"]
 
     def __init__(self, model_json_file, model_weights_file):
-        # load model from JSON file
+        # load model from JSON filep
         with open(model_json_file, "r") as json_file:
             loaded_model_json = json_file.read()
             self.loaded_model = model_from_json(loaded_model_json)

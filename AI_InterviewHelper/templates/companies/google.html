@@ -46,24 +46,28 @@
 				</script>
 			
 				<!-- Timer -->
-					<div class="setters">
-					   <div class="minutes-set">
-					    <button data-setter="minutes-plus">+</button>
-
-					    <button data-setter="minutes-minus">-</button>
-					  </div>
-					  <div class="seconds-set">
-					    <button data-setter="seconds-plus">+</button>
-					    <button data-setter="seconds-minus">-</button>
-					  </div>
-					</div>
+				<div id="time">65</div>
+				<canvas id="stopwatch" width = 200 height = 200 onclick="stopwatch()"></canvas>
+				<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		
+						<script>
+							jQuery(function(){
+								jQuery('#stopwatch').click();
+							});
+							
+							function stopwatch(){
+								$.ajax({
+									context: document.body
+								}).done();
+							}
+		
+						</script>
+						<p id= "stop">STOP</p>
+						<h3 id="reset">RESET</h3>
+							
 					
-
-					<div class="controlls">
-					  <div class="display-remain-time">00:60</div>
-					  <button class="play" id="pause"></button>
-					</div>
 					
+		
 					<input type="button" value="RESULT" onclick="popup();" style="margin-top: 5px; float: left;">
 					<input type="button" value="NEXT QUESTION" onclick="location.href='/questions'" style="margin-top: 10px;">
 			
