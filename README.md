@@ -13,6 +13,7 @@
     pip install sounddevice
     pip install tensorflow
     pip install cv2
+    pip install beautifulsoup4
 ```
 
 > Also We used Oracle MySql for database
@@ -52,7 +53,7 @@ if __name__ == '__main__':
     app.run(host='127.0.0.1',port=5000, debug=True)
 ```
 
-# 2. Using MySql
+# 2. Using MySQL
 
 ---
 
