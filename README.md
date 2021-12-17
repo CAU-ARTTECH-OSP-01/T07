@@ -64,7 +64,7 @@ if __name__ == '__main__':
 ```
   CREATE TABLE tbl_user(
     user_name varchar(255) not null primary key,
-    user_pw varchar(255) not null
+    user_password varchar(255) not null
     );
 ```
 
