@@ -4,7 +4,7 @@
     digital = document.getElementById("time"),
     reset = document.getElementById("reset"),
     timerOn = false,
-    second = (2 * Math.PI) / 60,
+    second = (2 * Math.PI) / 65,
     start = 1.5 * Math.PI,
     t = 0,
     animation
@@ -16,29 +16,29 @@
     ctx.beginPath()
     ctx.arc(100, 100, 80, start, start + second * t)
     ctx.stroke()
-    t = t >= 60 ? 0 : t + 0.05
+    t = t > 65 ? 0 : t + 0.05
   }
 
   canvas.addEventListener("click", function () {
-    setTimeout(function () {
-      if (!timerOn) {
-        timerOn = true
-        animation = setInterval(function () {
-          draw()
-          digital.innerHTML = Math.floor(60 - t)
-        }, 50)
-      } else {
-        timerOn = false
-        clearInterval(animation)
-      }
-    }, 5000)
+    if (!timerOn) {
+      timerOn = true
+      animation = setInterval(function () {
+        draw()
+        digital.innerHTML = Math.floor(66 - t)
+      }, 65)
+    } else {
+      timerOn = false
+      clearInterval(animation)
+    }
   })
 
   reset.addEventListener("click", function () {
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
-    digital.innerHTML = Math.floor(60 - t)
-    timerOn = false
-    clearInterval(animation)
-    t = 0
+    setTimeout(function () {
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      digital.innerHTML = Math.floor(66 - t)
+      timerOn = false
+      clearInterval(animation)
+      t = 0
+    }, 85500)
   })
 })()
