@@ -1,8 +1,7 @@
 @charset "EUC-KR";
 
-
 #time {
-  color: #F7958E;
+  color: #f7958e;
   font-family: Arial;
   font-size: 40px;
   position: absolute;
@@ -24,7 +23,7 @@
   left: 10%;
   top: 45%;
   margin-left: -100px;
-  border: 2px solid #F7958E;
+  border: 2px solid #f7958e;
   -webkit-border-radius: 200px;
 }
 #stop {
@@ -35,7 +34,7 @@
   width: 40px;
 }
 
-#reset{
+#reset {
   position: absolute;
   left: 10%;
   margin-left: -30px;
