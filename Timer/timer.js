@@ -19,7 +19,9 @@
       t = t >= 60 ? 0: t + 0.05; 
     }
     
-    canvas.addEventListener('click', function () {
+
+
+      canvas.addEventListener('click', function () {
       if (!timerOn) {
         timerOn = true;
         animation = setInterval(function () {
@@ -33,9 +35,11 @@
       }
   
     });
+
+
     reset.addEventListener('click', function () {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      digital.innerHTML = 0;
+      digital.innerHTML = Math.floor(60-t);
       timerOn = false;
       clearInterval(animation);
       t = 0;

@@ -27,7 +27,8 @@ class VideoCamera(object):
         _, fr = self.video.read()
         gray_fr = cv2.cvtColor(fr, cv2.COLOR_BGR2GRAY)
         faces = facec.detectMultiScale(gray_fr, 1.3, 5)
-
+        fr = cv2.flip(fr, 1)
+        
         global cnt
 
         for (x, y, w, h) in faces:

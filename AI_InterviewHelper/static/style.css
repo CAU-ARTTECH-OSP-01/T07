@@ -2,36 +2,37 @@
 
 /* * Local selectors */
 #container {
-    margin: 0px auto;
-    margin-top: 0px;
-    width: 300px;
-    height: 200px;
-    border: 10px #333 solid;
-    background-color: black;
+  margin: 0px auto;
+  margin-top: 0px;
+  width: 300px;
+  height: 200px;
+  border: 10px #333 solid;
+  background-color: black;
 }
 
 #container #videoElement {
-    width: auto;
-    height: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    background-color: black;
+  width: auto;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  background-color: black;
 }
 
 #control {
-    margin-top: 40px;
+  margin-top: 40px;
 }
 
-
- button[data-setter] {
+button[data-setter] {
   font-size: 18px;
   width: 20px;
   height: 25px;
-  color: #F7958E;
-} 
+  color: #f7958e;
+}
 
-button[data-setter]:hover { opacity: 0.5; }
+button[data-setter]:hover {
+  opacity: 0.5;
+}
 
 .setters {
   position: absolute;
@@ -44,7 +45,9 @@ button[data-setter]:hover { opacity: 0.5; }
   margin-right: 10px;
 }
 
-.seconds-set { float: right; }
+.seconds-set {
+  float: right;
+}
 
 .controlls {
   position: absolute;
@@ -54,15 +57,13 @@ button[data-setter]:hover { opacity: 0.5; }
 }
 
 .display-remain-time {
-  margin-top:25px;
-  
-  
+  margin-top: 25px;
 
-  margin-right:20px;
-  font-family: 'Roboto';
+  margin-right: 20px;
+  font-family: "Roboto";
   font-weight: 100;
   font-size: 25px;
-  color: #F7958E;
+  color: #f7958e;
 }
 
 #pause {
@@ -83,7 +84,7 @@ button[data-setter]:hover { opacity: 0.5; }
   left: 16px;
   border-top: 15px solid transparent;
   border-bottom: 15px solid transparent;
-  border-left: 22px solid #F7958E;
+  border-left: 22px solid #f7958e;
 }
 
 .pause::after {
@@ -95,9 +96,11 @@ button[data-setter]:hover { opacity: 0.5; }
   height: 30px;
   background-color: transparent;
   border-radius: 1px;
-  border: 5px solid #F7958E;
+  border: 5px solid #f7958e;
   border-top: none;
   border-bottom: none;
 }
 
-#pause:hover { opacity: 0.8; }
+#pause:hover {
+  opacity: 0.8;
+}

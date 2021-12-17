@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>timer</title>
+    <script>
+      var timer = new Timer();
+      timer.start();
+
+      timer.addEventListener('secondsUpdated', function (e) {
+      $('#basicUsage').html(timer.getTimeValues().toString());
+      });
+    </script>
+  </head>
+  <body>
+    <div id="basicUsage">00:00:00</div>
+  </body>
+</html>

@@ -1,36 +1,40 @@
 # T07 AI Interview Helper
-> Due to the Covid, many companies have changed their recruition by having AI interview.  
+
+> Due to the Covid, many companies have changed their recruition by having AI interview.
 
 ## #Installation
 
 ```
-    pip install Flask 
+    pip install Flask
     pip install Flask-Bootstrap
     pip install opencv-python
     pip install numpy
-    pip install speechrecognition
+    pip install SpeechRecognition
     pip install sounddevice
     pip install tensorflow
     pip install cv2
 ```
-> Also We used Oracle MySql for database 
+
+> Also We used Oracle MySql for database
+
     <img src="https://user-images.githubusercontent.com/93374409/144154665-89458a8b-9ff9-4299-9117-794a5d3d0d06.png" width="300" height="auto">
-    
-    
-    
+
 ## #.xml
-> You will need 2 haarcascade file. 
+
+> You will need 2 haarcascade file.
+
 ```
     haarcascade_frontalface_default.xml
     haarcascade_eye.xml
 ```
-> These two xml file is in Haarcascades file in AI_InterviewHelper file 
-    
 
+> These two xml file is in Haarcascades file in AI_InterviewHelper file
 
 # 1. How To Use Flask
----- 
-~~~
+
+---
+
+```
 from flask import Flask, render_template, Response, session, url_for, request,redirect
 from flask_bootstrap import Bootstrap
 
@@ -46,22 +50,26 @@ def main():
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1',port=5000, debug=True)
-~~~
+```
 
+# 2. Using MySql
 
-# 2. Using MySql 
 ---
->We needed 3 database table
->1. User information 
+
+> We needed 3 database table
+>
+> 1.  User information
+
 ```
   CREATE TABLE tbl_user(
-    user_name not null varchar2(255) primary key,
-    user_pw not null varchar2(255) 
+    user_name varchar(255) not null primary key,
+    user_pw varchar(255) not null
     );
 ```
 
->2.interview table
-```    
+> 2.interview table
+
+```
     CREATE TABLE interviews(
         NO int not null auto_increment primary key,
         id varchar(255) not null,
@@ -71,7 +79,7 @@ if __name__ == '__main__':
     );
 ```
 
->3.Questions table
+> 3.Questions table
 
     CREATE TABLE questions(
         NO int not null auto_increment primary key,
@@ -79,16 +87,12 @@ if __name__ == '__main__':
         questions varchar(500)
     );
 
-
-
 # Question Lists
-
----
 
 "samsung","What kind of person will you be within next 10 years?"
 "samsung","What will you do if you have a different opinion with your suprior?"
 "samsung","Tell me your biggest merit"
 
----
-
-    Project
+"google","Imagine if we are your nephew. \nTell us about database"
+"google","What is your favorite Google product? And why?"
+"google","Why do you want to work for Google?"
