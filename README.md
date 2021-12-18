@@ -9,11 +9,11 @@
     pip install Flask-Bootstrap
     pip install opencv-python
     pip install numpy
-    pip install SpeechRecognition
     pip install sounddevice
     pip install tensorflow
     pip install cv2
     pip install beautifulsoup4
+    pip install cryptography
 ```
 
 > Also We used Oracle MySql for database
