@@ -90,10 +90,10 @@ if __name__ == '__main__':
 
 # Question Lists
 
-"samsung","What kind of person will you be within next 10 years?"
-"samsung","What will you do if you have a different opinion with your suprior?"
-"samsung","Tell me your biggest merit"
-
-"google","Imagine if we are your nephew. \nTell us about database"
-"google","What is your favorite Google product? And why?"
-"google","Why do you want to work for Google?"
+"samsung","What kind of person will you be within next 10 years?" <br/>
+"samsung","What will you do if you have a different opinion with your suprior?" <br/>
+"samsung","Tell me your biggest merit"<br/>
+<br/><br/>
+"google","Imagine if we are your nephew. \nTell us about database" <br/>
+"google","What is your favorite Google product? And why?" <br/>
+"google","Why do you want to work for Google?"<br/>
