@@ -46,23 +46,32 @@
 				</script>
 			
 				<!-- Timer -->
-				<div id="time">65</div>
-				<canvas id="stopwatch" width = 200 height = 200 onclick="stopwatch()"></canvas>
-				<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-		
+				<div id="time">66</div>
+      				<canvas id="stopwatch" width = 200 height = 200 onclick="stopwatch()"></canvas>
+					<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
 						<script>
 							jQuery(function(){
 								jQuery('#stopwatch').click();
 							});
-							
+
+							jQuery(function(){
+								jQuery('#reset').click();
+							});
+					
 							function stopwatch(){
 								$.ajax({
 									context: document.body
 								}).done();
 							}
-		
+							
+							function reset(){
+								$.ajax({
+									context: document.body
+								}).done();
+							}
+
 						</script>
-						<p id= "stop">STOP</p>
 						<h3 id="reset">RESET</h3>
 							
 					
@@ -122,7 +131,7 @@
 			<script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
 			<script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
 			<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
-			<script src="{{ url_for('static', filename='assets/js/timer.js') }}"></script>
+			<script src="{{ url_for('static', filename='/assets/js/timer.js') }}"></script>
 			<script src="{{ url_for('static', filename='assets/js/audio.js') }}"></script>
 			
 			<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
