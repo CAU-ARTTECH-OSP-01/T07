@@ -4,7 +4,6 @@ import sys
 import numpy as np
 from bs4 import BeautifulSoup 
 
-
 facec = cv2.CascadeClassifier('Haarcascades/haarcascade_frontalface_default.xml')
 model = FacialExpressionModel("model.json", "model_weights.h5")
 font = cv2.FONT_HERSHEY_SIMPLEX
@@ -12,6 +11,8 @@ eyestreec = cv2.CascadeClassifier('Haarcascades/haarcascade_eye_tree_eyeglasses.
 eyesc = cv2.CascadeClassifier('Haarcascades/haarcascade_eye.xml')
 global cnt
 cnt=0
+global blinkingState
+blinkingState = []
 
 
 class VideoCamera(object):
@@ -32,27 +33,39 @@ class VideoCamera(object):
         global cnt
 
         for (x, y, w, h) in faces:
-            fc = gray_fr[y:y+h, x:x+w]
+            k = 1
 
+            fc = gray_fr[y:y+h, x:x+w]
             roi = cv2.resize(fc, (48, 48))
             pred = model.predict_emotion(roi[np.newaxis, :, :, np.newaxis])            
             cv2.rectangle(fr,(x,y),(x+w,y+h),(255,0,0),2)
             eyes = eyesc.detectMultiScale(gray_fr,1.3,5,minSize=(50, 50))
-            if len(eyes)>=2:
-                for(ex,ey,ew,eh) in eyes:
-                    cnt= cnt + 1
-                    #print("you've blinked ",int(cnt/2)," times")
-                    blinktxt= "you've blinked "+str(cnt/2)+" times"
-                    with open('templates/companies/popup.html') as html_file:
-                        soup = BeautifulSoup(html_file.read(), features="html.parser")
-                        for tag in soup.find_all(id='blinkcnt'):
-                            tag.string.replace_with("you have blinked "+str(int(cnt/2))+" times")
-                        new_text = soup.prettify()
-                    with open('templates/companies/popup.html', mode='w') as  new_html_file:
-                        new_html_file.write(new_text)
-            cv2.putText(fr, pred, (x, y), font, 1, (255, 255, 0), 2)
             
-            cnt=0
+            for (ex,ey,ew,eh) in eyes:
+                k = 0
+
+            if k == 1: # 눈 감은 상태 감지
+                blinkingState.append(1)
+                #print("Blinking!") -> 세부 기능 잘 실행되고 있는지 실시간 확인용 1 (눈을 감았을 경우가 잘 감지되는가?)
+            else: # 눈 뜬 상태 감지
+                blinkingState.append(0)
+                #print("Not Blinking!") -> 실시간 확인용 2 (눈 뜬 상태가 잘 감지되는가?)
+        
+            if len(blinkingState) == 2:
+                if blinkingState[1] - blinkingState[0] == -1:
+                    cnt += 1
+                    print("you've blinked " + str(cnt) + "times") # -> 실시간 확인용 3 (제대로 count되고 있는가?)
+                del blinkingState[0]
+                
+                with open('templates/companies/popup.html') as html_file:
+                    soup = BeautifulSoup(html_file.read(), features="html.parser")
+                    for tag in soup.find_all(id='blinkcnt'):
+                        tag.string.replace_with("you have blinked "+str(cnt)+" times")
+                    new_text = soup.prettify()
+                with open('templates/companies/popup.html', mode='w') as  new_html_file:
+                    new_html_file.write(new_text)
+
+            cv2.putText(fr, pred, (x, y), font, 1, (255, 255, 0), 2)
 
         _, jpeg = cv2.imencode('.jpg', fr)
         return jpeg.tobytes()
