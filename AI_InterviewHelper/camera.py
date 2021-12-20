@@ -4,6 +4,27 @@ import sys
 import numpy as np
 from bs4 import BeautifulSoup 
 
+#This program counts blinking eyes.
+#Copyright (C) 2020 SatYu26
+
+#This program is free software: you can redistribute it and/or modify
+#it under the terms of the GNU General Public License as published by
+#the Free Software Foundation, either version 3 of the License, or
+#(at your option) any later version.
+
+#This program is distributed in the hope that it will be useful,
+#but WITHOUT ANY WARRANTY; without even the implied warranty of
+#MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#GNU General Public License for more details.
+
+#You should have received a copy of the GNU General Public License
+#along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+#Date of modification: 2021.12.20
+#Modification: The accuracy of the counter was improved by adding 
+#the list blinkingState, and the rectangle displaying 
+#the eye was removed.
+
 facec = cv2.CascadeClassifier('Haarcascades/haarcascade_frontalface_default.xml')
 model = FacialExpressionModel("model.json", "model_weights.h5")
 font = cv2.FONT_HERSHEY_SIMPLEX
