@@ -19,8 +19,8 @@ def connectsql():
                     host='localhost',
                     port = 3306,
                     user='root',
-                    passwd='tiger',
-                    db = 'mypage',
+                    passwd='hojin0215!',
+                    db = 'userlist',
                     charset='utf8')
     return db
 
