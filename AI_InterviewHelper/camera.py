@@ -25,6 +25,8 @@ from bs4 import BeautifulSoup
 #the list blinkingState, and the rectangle displaying 
 #the eye was removed.
 
+#Contact: eysl018@icloud.com
+
 facec = cv2.CascadeClassifier('Haarcascades/haarcascade_frontalface_default.xml')
 model = FacialExpressionModel("model.json", "model_weights.h5")
 font = cv2.FONT_HERSHEY_SIMPLEX
@@ -75,7 +77,7 @@ class VideoCamera(object):
             if len(blinkingState) == 2:
                 if blinkingState[1] - blinkingState[0] == -1:
                     cnt += 1
-                    print("you've blinked " + str(cnt) + "times") # -> 실시간 확인용 3 (제대로 count되고 있는가?)
+                    print("you've blinked " + str(cnt) + " times") # -> 실시간 확인용 3 (제대로 count되고 있는가?)
                 del blinkingState[0]
                 
                 with open('templates/companies/popup.html') as html_file:
