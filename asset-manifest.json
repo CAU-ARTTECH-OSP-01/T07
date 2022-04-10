@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.js": "/hojin/static/js/main.88ed3fd0.js",
+    "static/media/Logo.png": "/hojin/static/media/Logo.15406074007aab993c5d.png",
+    "static/media/bg.png": "/hojin/static/media/bg.88bb8c3a8c69851bcfea.png",
+    "index.html": "/hojin/index.html",
+    "main.88ed3fd0.js.map": "/hojin/static/js/main.88ed3fd0.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.88ed3fd0.js"
+  ]
+}
