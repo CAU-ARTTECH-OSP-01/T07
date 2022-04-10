@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "/hojin/static/js/main.88ed3fd0.js",
-    "static/media/Logo.png": "/hojin/static/media/Logo.15406074007aab993c5d.png",
-    "static/media/bg.png": "/hojin/static/media/bg.88bb8c3a8c69851bcfea.png",
-    "index.html": "/hojin/index.html",
-    "main.88ed3fd0.js.map": "/hojin/static/js/main.88ed3fd0.js.map"
+    "main.js": "/Hojin/static/js/main.3e518566.js",
+    "static/media/Logo.png": "/Hojin/static/media/Logo.15406074007aab993c5d.png",
+    "static/media/bg.png": "/Hojin/static/media/bg.88bb8c3a8c69851bcfea.png",
+    "index.html": "/Hojin/index.html",
+    "main.3e518566.js.map": "/Hojin/static/js/main.3e518566.js.map"
   },
   "entrypoints": [
-    "static/js/main.88ed3fd0.js"
+    "static/js/main.3e518566.js"
   ]
 }
